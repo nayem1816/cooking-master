@@ -14,10 +14,12 @@ document.getElementById('search-btn').addEventListener('click', function() {
                 if (data.meals) {
                     mealItem.forEach(foodName => {
                         addHtml +=`
-                            <div onclick="allFoodDiv(${foodName.idMeal})" class = 'food-item'>
-                                <img src="${foodName.strMealThumb}">
-                                <h2>${foodName.strMeal}</h2>
-                            </div>
+                            <a href="#each-food">
+                                <div onclick="allFoodDiv(${foodName.idMeal})" class = 'food-item'>
+                                    <img src="${foodName.strMealThumb}">
+                                    <h2>${foodName.strMeal}</h2>
+                                </div>
+                            </a>
                         `
                     });
                 } else {
