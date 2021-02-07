@@ -8,17 +8,22 @@ document.getElementById('search-btn').addEventListener('click', function() {
             const mealItem = data.meals;
             let addHtml ='';
             if (inputText === '') {
-                alert('wrong')
+                alert('Please type your food name');
             }
             else{
-                mealItem.forEach(foodName => {
-                    addHtml +=`
-                        <div onclick="allFoodDiv(${foodName.idMeal})" class = 'food-item'>
-                            <img src="${foodName.strMealThumb}">
-                            <h2>${foodName.strMeal}</h2>
-                        </div>
-                    `
-                });
+                if (data.meals) {
+                    mealItem.forEach(foodName => {
+                        addHtml +=`
+                            <div onclick="allFoodDiv(${foodName.idMeal})" class = 'food-item'>
+                                <img src="${foodName.strMealThumb}">
+                                <h2>${foodName.strMeal}</h2>
+                            </div>
+                        `
+                    });
+                } else {
+                    alert(inputText + 'Food is Not Available');
+                }
+                
             }
             allFood.innerHTML = addHtml;
         })
